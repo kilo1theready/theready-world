@@ -4,7 +4,7 @@
 ### About The Ready
 The Ready series provides practical, tested survival skills through scenario-specific applications. Each book empowers readers to thrive in crisis situations by understanding problems, implementing solutions, and building competency through practice.
 
-![The Ready: Water Cover](water-cover.jpg)
+![Book Cover](cover.jpg)
 
 ### Coming Soon
 **The Ready: Water** - Essential water procurement, purification, and storage techniques for any situation. *(Currently in final review)*
@@ -19,4 +19,3 @@ Kilo 1 is a tactical expert with extensive field experience in survival and emer
 
 ### Contact
 For inquiries: kilo1@theready.world
-

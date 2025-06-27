@@ -19,4 +19,3 @@ Kilo 1 is a tactical expert with extensive field experience in survival and emer
 
 ### Contact
 For inquiries: kilo1@theready.world
-

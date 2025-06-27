@@ -4,7 +4,7 @@
 ### About The Ready
 The Ready series provides practical, tested survival skills through scenario-specific applications. Each book empowers readers to thrive in crisis situations by understanding problems, implementing solutions, and building competency through practice.
 
-![Book Cover](cover.jpg)
+![TheReadyWaster](TheReadyWater.png)
 
 ### Coming Soon
 **The Ready: Water** - Essential water procurement, purification, and storage techniques for any situation. *(Currently in final review)*

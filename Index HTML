@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ready Series - Research-Backed Survival Skills for Real People</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2C3E36;
+            background-color: #F8F6F8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #4A5D23;
+            color: #F8F6F8;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #F8F6F8;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #F8F6F8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2A9D8F;
+        }
+
+        .cta-button {
+            background-color: #D2691F;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #B8571A;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4A5D23 0%, #6B7C3A 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .scenario-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            width: 200px;
+        }
+
+        .scenario-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Value Proposition */
+        .value-prop {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .value-prop h2 {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #4A5D23;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature {
+            padding: 2rem;
+            border-radius: 10px;
+            background: #F8F6F8;
+            border-left: 4px solid #4A5D23;
+        }
+
+        .feature h3 {
+            color: #4A5D23;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .check-icon {
+            color: #2A9D8F;
+            margin-right: 0.5rem;
+        }
+
+        .x-icon {
+            color: #CC2936;
+            margin-right: 0.5rem;
+        }
+
+        /* Water Calculator Section */
+        .calculator-section {
+            background: linear-gradient(135deg, #1E4A72 0%, #2E5A82 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .calculator-info h2 {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .calculator {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .calculate-btn {
+            width: 100%;
+            background-color: #D2691F;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calculate-btn:hover {
+            background-color: #B8571A;
+        }
+
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(42, 157, 143, 0.2);
+            border-radius: 5px;
+            border-left: 4px solid #2A9D8F;
+            display: none;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 4rem 0;
+            background-color: #F8F6F8;
+            text-align: center;
+        }
+
+        .social-proof h2 {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #4A5D23;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #4A5D23;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2C3E36;
+            color: #F8F6F8;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            margin-bottom: 1rem;
+            color: #2A9D8F;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #F8F6F8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #2A9D8F;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4A5D23;
+            padding-top: 1rem;
+            text-align: center;
+            color: #6B7C7A;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .hero-image {
+                gap: 1rem;
+            }
+            
+            .scenario-card {
+                width: 150px;
+            }
+        }
+
+        /* Alert Styles */
+        .alert {
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        .alert-warning {
+            background-color: #F4A261;
+            color: #2C3E36;
+            border-left: 4px solid #E76F51;
+        }
+
+        .alert-success {
+            background-color: #2A9D8F;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">THE READY</a>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#calculator">Water Calculator</a></li>
+                        <li><a href="#books">The Book</a></li>
+                    </ul>
+                </nav>
+                <a href="#calculator" class="cta-button">Try Calculator</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Research-Backed Survival Skills for Real People</h1>
+                <p class="subtitle">No bunkers. No conspiracies. Just practical skills that work when you need them most.</p>
+                
+                <div class="hero-image">
+                    <div class="scenario-card">
+                        <div class="scenario-icon" style="color: #D2691F;">🎒</div>
+                        <h3>Mobile</h3>
+                        <p>On the move with minimal resources</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-icon" style="color: #1E4A72;">🏢</div>
+                        <h3>Urban</h3>
+                        <p>City environment, grid failure</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-icon" style="color: #2E5D31;">🌲</div>
+                        <h3>Rural</h3>
+                        <p>Country/wilderness setting</p>
+                    </div>
+                </div>
+                
+                <a href="#calculator" class="cta-button">Try Our Water Calculator</a>
+            </div>
+        </section>
+
+        <!-- The Book Section -->
+        <section id="books" class="value-prop">
+            <div class="container">
+                <h2>The Ready: Water - Complete Water Security for Any Crisis</h2>
+                <div class="book-info" style="max-width: 900px; margin: 0 auto;">
+                    
+                    <div class="alert alert-warning" style="margin-bottom: 2rem; text-align: left;">
+                        <p style="font-size: 1.1rem; margin-bottom: 1rem;"><strong>When Hurricane Katrina flooded New Orleans, families with emergency supplies still suffered from dehydration because they didn't know how to use them. When Texas froze in 2021, stored water turned to ice and treatment systems failed.</strong></p>
+                        <p style="font-size: 1.1rem; margin: 0;"><strong>The difference between families who maintain clean water during emergencies and those who suffer isn't luck—it's systematic preparation.</strong></p>
+                    </div>
+                    
+                    <div class="book-features" style="text-align: left; margin: 2rem 0;">
+                        <h3 style="text-align: center; margin-bottom: 1.5rem; color: #4A5D23;">Three Scenario-Specific Approaches:</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                            <div style="background: rgba(210, 105, 31, 0.1); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #D2691F;">
+                                <h4 style="color: #D2691F; margin-bottom: 1rem;">🎒 Mobile/Evacuation</h4>
+                                <p>Lightweight systems for survival on the run</p>
+                            </div>
+                            <div style="background: rgba(30, 74, 114, 0.1); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #1E4A72;">
+                                <h4 style="color: #1E4A72; margin-bottom: 1rem;">🏢 Urban Grid-Down</h4>
+                                <p>Home-based systems for city infrastructure failure</p>
+                            </div>
+                            <div style="background: rgba(46, 93, 49, 0.1); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #2E5D31;">
+                                <h4 style="color: #2E5D31; margin-bottom: 1rem;">🌲 Rural Independence</h4>
+                                <p>Large-scale systems for permanent self-reliance</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #F8F6F8; padding: 2rem; border-radius: 10px; margin: 2rem 0; text-align: left;">
+                        <h3 style="color: #4A5D23; margin-bottom: 1rem;">Your Water Security Transformation</h3>
+                        <p style="margin-bottom: 1rem;"><strong>Complete System Coverage:</strong> Emergency Storage → Source Location → Filtration → Purification → Collection → Integration → Competency Building</p>
+                        
+                        <h4 style="color: #4A5D23; margin: 1.5rem 0 1rem;">Your Timeline:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;"><strong>⏱️ Week 1:</strong> Basic emergency capability</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>📅 Month 3:</strong> Extended crisis resilience</li>
+                            <li style="margin-bottom: 0;"><strong>🎯 Year 1:</strong> Complete independence with community leadership</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <h3 style="color: #4A5D23; margin-bottom: 1rem;">Professional-Grade, Field-Tested Methods</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Every technique is validated by water treatment professionals, emergency managers, and survival experts. No theory, no untested advice—only proven systems that work under real-world conditions.</p>
+                        
+                        <div class="alert alert-success" style="font-size: 1.2rem; font-weight: bold;">
+                            Never again be vulnerable to water supply disruptions.
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning" style="margin: 2rem 0;">
+                        <strong>Coming Soon:</strong> Get early access and exclusive bonuses by using the water calculator below to start planning your family's water security today.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Water Calculator Section -->
+        <section id="calculator" class="calculator-section">
+            <div class="container">
+                <div class="calculator-container">
+                    <div class="calculator-info">
+                        <h2>Water Security Calculator</h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">3 days without water can be fatal. Find out exactly how much your family needs and how to store it safely.</p>
+                        
+                        <div class="alert alert-warning">
+                            <strong>⚠️ Critical Fact:</strong> The average person needs 1 gallon per day for drinking, cooking, and basic hygiene. Most families have less than 1 day's supply.
+                        </div>
+                        
+                        <p>Our calculator considers your family size, climate, activity level, and emergency duration to give you precise water storage requirements.</p>
+                    </div>
+                    
+                    <div class="calculator">
+                        <h3 style="margin-bottom: 1.5rem; text-align: center;">Calculate Your Water Needs</h3>
+                        
+                        <div class="form-group">
+                            <label for="adults">Number of Adults:</label>
+                            <input type="number" id="adults" min="1" max="20" value="2">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="children">Number of Children:</label>
+                            <input type="number" id="children" min="0" max="10" value="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="days">Emergency Duration (days):</label>
+                            <input type="number" id="days" min="1" max="30" value="7">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="climate">Climate:</label>
+                            <select id="climate">
+                                <option value="temperate">Temperate</option>
+                                <option value="hot">Hot/Arid</option>
+                                <option value="cold">Cold</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="activity">Activity Level:</label>
+                            <select id="activity">
+                                <option value="low">Low (mostly indoor)</option>
+                                <option value="moderate">Moderate (some outdoor work)</option>
+                                <option value="high">High (heavy outdoor work)</option>
+                            </select>
+                        </div>
+                        
+                        <button class="calculate-btn" onclick="calculateWater()">Calculate Water Needs</button>
+                        
+                        <div id="result" class="result">
+                            <!-- Results will appear here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="social-proof">
+            <div class="container">
+                <h2>About</h2>
+                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">I've been hunting, hiking, and camping since I was a teenager. What started as weekend adventures turned into a 20-year career in various safety and emergency response roles across New Zealand and Australia—experiences that taught me the difference between what actually works in crisis situations versus what sounds good in theory.</p>
+                    
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Whether it was responding to emergencies as a police officer, training teams in high-risk environments, or helping organizations prepare for worst-case scenarios, I kept seeing the same pattern: the most effective solutions were always the simplest ones that normal people could actually execute under pressure.</p>
+                    
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">These days, I still spend my weekends in the bush with mates, and I've started taking people out who've always wanted to try hunting or hiking but didn't know where to begin. There's something rewarding about watching someone gain confidence in the outdoors—and it's reminded me how most 'survival advice' online is either completely impractical or designed to sell fear rather than build real skills.</p>
+                    
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">The Ready series bridges that gap—teaching the same practical methods that professionals use, but in a way that makes sense for everyday people who just want to be prepared.</p>
+                    
+                    <p style="font-size: 1.1rem; margin-bottom: 0;"><strong>This isn't about politics or paranoia. It's about normal people having access to the same straightforward, tested approaches that emergency responders and safety professionals rely on when things go wrong.</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Ready Series</h3>
+                    <ul>
+                        <li><a href="#books">The Ready: Water (Coming Soon)</a></li>
+                        <li><a href="#calculator">Water Calculator</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#calculator">Water Calculator</a></li>
+                        <li><a href="#books">Book Information</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>More Info</h3>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#books">Coming Soon</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Ready Series by Shane W. Practical preparedness for real people.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateWater() {
+            const adults = parseInt(document.getElementById('adults').value) || 0;
+            const children = parseInt(document.getElementById('children').value) || 0;
+            const days = parseInt(document.getElementById('days').value) || 1;
+            const climate = document.getElementById('climate').value;
+            const activity = document.getElementById('activity').value;
+            
+            // Base water needs (gallons per person per day)
+            let adultWater = 1.0; // Base 1 gallon per adult
+            let childWater = 0.5; // Children need less
+            
+            // Climate adjustments
+            if (climate === 'hot') {
+                adultWater *= 1.5;
+                childWater *= 1.5;
+            } else if (climate === 'cold') {
+                adultWater *= 1.2;
+                childWater *= 1.2;
+            }
+            
+            // Activity adjustments
+            if (activity === 'high') {
+                adultWater *= 1.5;
+                childWater *= 1.3;
+            } else if (activity === 'moderate') {
+                adultWater *= 1.2;
+                childWater *= 1.1;
+            }
+            
+            const totalDaily = (adults * adultWater) + (children * childWater);
+            const totalNeeded = totalDaily * days;
+            
+            // Storage recommendations
+            const containers = Math.ceil(totalNeeded / 5); // 5-gallon containers
+            const cost = Math.round(containers * 15); // Approximate cost
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h4>Your Water Requirements:</h4>
+                <p><strong>Daily Needs:</strong> ${totalDaily.toFixed(1)} gallons per day</p>
+                <p><strong>Total for ${days} days:</strong> ${totalNeeded.toFixed(1)} gallons</p>
+                <p><strong>Storage Recommendation:</strong> ${containers} five-gallon containers</p>
+                <p><strong>Estimated Cost:</strong> $${cost}</p>
+                <div class="alert alert-success" style="margin-top: 1rem;">
+                    <strong>Next Steps:</strong> Get "The Ready: Water" for complete storage methods, purification techniques, and procurement strategies for all three scenarios.
+                </div>
+            `;
+            resultDiv.style.display = 'block';
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
